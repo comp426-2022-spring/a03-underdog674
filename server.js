@@ -1,13 +1,14 @@
 const express = require('express')
+const minimist = require("minimist")
 const app = express()
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
-const minimist = require("minimist")
-const args = minimist(process.argv.slice(2))
+//app.use(express.json())
+//app.use(express.urlencoded({extended: true}))
 
+const args = minimist(process.argv.slice(2))
+console.log(args)
 args["port"]
-const port = args.PORT || 5000
+const port = args.port || 5000
 
 //const logging = (req,res,next) => {
   //  console.log(req.body.number)
