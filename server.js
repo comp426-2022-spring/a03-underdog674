@@ -29,7 +29,7 @@ app.get('/app/',(req,res) => {
 app.get('/app/echo/:number/',(req,res) =>{
   res.setHeader("showing", "alex")
     res.status(200).json({'raw': coinFlips(req.params.number), 'summary': countFlips(coinFlips(req.params.number))})
-    
+    res.type("text/plain")
 })
 
 //query
@@ -54,7 +54,7 @@ app.get('/app/flip',(req,res) =>{
   res.setHeader("showing", "alex")
 var flip = coinFlip()//need to create coinFlip above
 res.status(200).json({'flip': flip})
-
+res.type("text/plain")
 })
 
 
