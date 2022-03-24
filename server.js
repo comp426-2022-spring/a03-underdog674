@@ -3,7 +3,11 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-var port = process.env.PORT || 5000
+const minimist = require("minimist")
+const args = minimist(process.argv.slice(2))
+
+args["port"]
+const port = args.PORT || 5000
 
 //const logging = (req,res,next) => {
   //  console.log(req.body.number)
@@ -22,11 +26,11 @@ const server = app.listen(port, () => {
 
 app.get('/app/',(req,res) => {
     res.type('text/plain')
-    res.setHeader("showing", "alex")
+    
     res.status(200).end('200 OK')
 })
 
-app.get('/app/echo/:number/',(req,res) =>{
+app.get('/app/flips/:number/',(req,res) =>{
   res.setHeader("showing", "alex")
     res.status(200).json({'raw': coinFlips(req.params.number), 'summary': countFlips(coinFlips(req.params.number))})
     res.type("text/plain")
@@ -50,7 +54,7 @@ app.get('/app/echo/:number/',(req,res) =>{
      }
         
 
-app.get('/app/flip',(req,res) =>{
+app.get('/app/flip/',(req,res) =>{
   res.setHeader("showing", "alex")
 var flip = coinFlip()//need to create coinFlip above
 res.status(200).json({'flip': flip})
