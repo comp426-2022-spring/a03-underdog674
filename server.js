@@ -57,7 +57,7 @@ res.status(200).json({'flip': flip})
 res.type("text/plain")
 })
 
-
+//lol
 
 
 function countFlips(array) {
