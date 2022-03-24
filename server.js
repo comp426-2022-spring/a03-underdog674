@@ -51,6 +51,7 @@ app.get('/app/echo/:number/',(req,res) =>{
         
 
 app.get('/app/flip',(req,res) =>{
+  res.setHeader("showing", "alex")
 var flip = coinFlip()//need to create coinFlip above
 res.status(200).json({'flip': flip})
 
