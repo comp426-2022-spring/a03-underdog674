@@ -27,13 +27,14 @@ app.get('/app/',(req,res) => {
 })
 
 app.get('/app/echo/:number',(req,res) =>{
-    
+  res.setHeader("showing", "alex")
     res.status(200).json({'raw': coinFlips(req.params.number), 'summary': countFlips(coinFlips(req.params.number))})
     
 })
 
 //query
 app.get('/app/echo/',(req,res)=> {
+  res.setHeader("showing", "alex")
 res.status(200).json({'message': req.query.number})
 
 })
