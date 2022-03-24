@@ -58,6 +58,21 @@ res.type("text/plain")
 })
 
 //lol
+app.get('/app/flip/call/heads',(req,res) =>{
+  res.setHeader("showing", "alex")
+var flipHead = "heads"//need to create coinFlip above
+res.status(200).json(flipACoin(flipHead))
+res.type("text/plain")
+})
+
+
+app.get('/app/flip/call/tails',(req,res) =>{
+  
+var flipTails = "tails"//need to create coinFlip above
+res.status(200).json(flipACoin(flipTails))
+res.type("text/plain")
+})
+
 
 
 function countFlips(array) {
@@ -92,7 +107,16 @@ function countFlips(array) {
       return coinArray;
     }
 
-
+    function flipACoin(call) {
+      var theCoin = coinFlip();
+        if(theCoin===call){
+        return {"call": call, flip: theCoin, result: "win"};
+        }
+        else{
+          return {"call": call, flip: theCoin, result: "lose"};
+        }
+        
+      }
 
 
     app.use(function(req,res){
