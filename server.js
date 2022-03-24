@@ -5,11 +5,11 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 var port = process.env.PORT || 5000
 
-const logging = (req,res,next) => {
-    console.log(req.body.number)
-    next()
+//const logging = (req,res,next) => {
+  //  console.log(req.body.number)
+  //  next()
 
-}
+//}
 
 
 const server = app.listen(port, () => {
@@ -33,17 +33,17 @@ app.get('/app/echo/:number',(req,res) =>{
 })
 
 //query
-app.get('/app/echo/',(req,res)=> {
-  res.setHeader("showing", "alex")
-res.status(200).json({'message': req.query.number})
+//app.get('/app/echo/',(req,res)=> {
+ // res.setHeader("showing", "alex")
+//res.status(200).json({'message': req.query.number})
 
-})
+//})
 
 
-app.get('/app/echo/',logging,(req,res)=> {
-    res.status(200).json({'message': req.body.number})
+//app.get('/app/echo/',logging,(req,res)=> {
+  //  res.status(200).json({'message': req.body.number})
     
-    })
+  //  })
 
   function coinFlip() {
         return (Math.floor(Math.random()*2) == 0) ? 'heads' : 'tails';
